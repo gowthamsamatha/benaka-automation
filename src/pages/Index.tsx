@@ -2,6 +2,9 @@
 import { Layout } from "@/components/layout";
 import { ButtonGradient } from "@/components/ui/button-gradient";
 import { useNavigate } from "react-router-dom";
+import homebanner from '../assets/home-banner.png'
+import whychoose from '../assets/why-choose.png'
+import ready from '../assets/ready.png'
 import { 
   LayoutGrid, 
   MonitorSmartphone, 
@@ -17,15 +20,21 @@ import {
   BarChart3 
 } from "lucide-react";
 
+const clientImages = Object.values(
+  import.meta.glob('/src/assets/clients/*.png', { eager: true, import: 'default' })
+);
+
+
 const Index = () => {
   const navigate = useNavigate();
+
 
   return (
     <Layout>
       {/* Hero Section with Video Background */}
       <section className="relative min-h-screen flex items-center">
         <div className="absolute inset-0 overflow-hidden">
-          <video
+          {/* <video
             autoPlay
             loop
             muted
@@ -33,7 +42,9 @@ const Index = () => {
             poster="https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
           >
             <source src="https://videos.pexels.com/videos/digital-presentation-of-data-2099232" type="video/mp4" />
-          </video>
+          </video> */}
+          <img src={homebanner}  alt="Banner"
+  className="w-full  object-cover"/>
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/90 to-gray-900/80" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -111,7 +122,8 @@ const Index = () => {
               <p className="text-gray-300 leading-relaxed">
                 BENAKA AUTOMATIONS is a leading and premium outdoor advertising agency in India, 
                 peculiar in Out of Home (OOH) and Digital Out of Home (DOOH) Advertising. Our core services include 
-                Hoarding, Billboard, Mall, On-Screen, Bus Shelter, Transit, and IT Parks Advertising.
+                Hoarding, Billboard, Mall, On-Screen, 
+                 Shelter, Transit, and IT Parks Advertising.
               </p>
             </div>
           </div>
@@ -171,7 +183,8 @@ const Index = () => {
                 color: "from-blue-600/20 to-blue-800/20",
                 borderColor: "border-blue-500/30",
                 iconBg: "bg-blue-500/20",
-                iconColor: "text-blue-400"
+                iconColor: "text-blue-400",
+                
               },
               {
                 icon: <Building size={28} />,
@@ -228,7 +241,7 @@ const Index = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
                 <p className="text-gray-300 mb-4">{service.description}</p>
-                <a href="/solutions" className="flex items-center text-blue-400 hover:text-blue-300 transition-colors">
+                <a href="/services" className="flex items-center text-blue-400 hover:text-blue-300 transition-colors">
                   <span>Learn more</span>
                   <ArrowRight size={16} className="ml-2" />
                 </a>
@@ -283,7 +296,7 @@ const Index = () => {
             <div className="relative">
               <div className="p-2 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81" 
+                  src={whychoose} 
                   alt="Digital Advertising Display" 
                   className="rounded-xl w-full h-auto"
                 />
@@ -323,7 +336,7 @@ const Index = () => {
       <section className="py-20 bg-gradient-to-b from-gray-900 to-gray-800 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12 text-white">Our Clients</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+          {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
             {Array.from({ length: 12 }).map((_, index) => (
               <div
                 key={index}
@@ -332,7 +345,18 @@ const Index = () => {
                 <div className="text-gray-400 font-medium">Client {index+1}</div>
               </div>
             ))}
-          </div>
+          </div> */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+  {clientImages.map((imgSrc, index) => (
+    <div
+      key={index}
+      className="h-20 flex items-center justify-center rounded-lg bg-gray-800/80 backdrop-blur-lg border border-white/10 hover:border-white/20 transition-all duration-300 transform hover:scale-105"
+    >
+      <img src={imgSrc} alt={`Client ${index + 1}`} className="max-h-12 object-contain" />
+    </div>
+  ))}
+</div>
+
           
           <div className="text-center mt-12">
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
@@ -346,23 +370,28 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-900/80 to-purple-900/80 backdrop-blur-lg relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-3xl font-bold mb-8 text-white">Ready to Elevate Your Brand Visibility?</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Let's discuss how our innovative outdoor advertising solutions can help you reach your target audience effectively.
-          </p>
-          <ButtonGradient onClick={() => navigate("/contact")}>Get Started</ButtonGradient>
-        </div>
-        
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 overflow-hidden opacity-30">
-          <div className="absolute top-0 left-0 w-full h-full">
-            <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-blue-500 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-purple-500 rounded-full blur-3xl"></div>
-          </div>
-        </div>
-      </section>
+      <section
+  className="py-20  relative overflow-hidden bg-cover bg-center"
+style={{ backgroundImage: `url(${ready})`}}
+
+>
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 to-purple-900/75 "></div>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <h2 className="text-3xl font-bold mb-8 text-white">
+      Ready to Elevate Your Brand Visibility?
+    </h2>
+    <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+      Let's discuss how our innovative outdoor advertising solutions can help you reach your target audience effectively.
+    </p>
+    <ButtonGradient onClick={() => navigate("/contact")}>
+      Get Started
+    </ButtonGradient>
+  </div>
+
+  {/* Optional dark overlay for better contrast */}
+  <div className="absolute inset-0 bg-black/40 z-0"></div>
+</section>
+
     </Layout>
   );
 };

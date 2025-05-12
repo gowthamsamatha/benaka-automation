@@ -2,11 +2,17 @@
 import { Layout } from "@/components/layout";
 import { ButtonGradient } from "@/components/ui/button-gradient";
 import { MapPin, Phone, Mail, Clock, Building, ArrowRight } from "lucide-react";
+import aboutbanner from '../assets/aboutbanner.jpg'
 
 const Contact = () => {
   return (
     <Layout>
-      <section className="pt-20 pb-12 bg-gradient-to-br from-blue-900/50 to-purple-900/50 relative overflow-hidden">
+       <section
+  className="py-20  relative overflow-hidden bg-cover bg-center"
+style={{ backgroundImage: `url(${aboutbanner})`}}
+
+>
+  <div className="absolute inset-0 bg-gradient-to-b from-blue-900/45 to-purple-900/50 "></div>
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
           <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-purple-500 rounded-full blur-3xl"></div>
@@ -16,7 +22,7 @@ const Contact = () => {
             Contact Us
           </h1>
           <p className="text-xl text-gray-300 text-center max-w-3xl mx-auto">
-            Get in touch with us to explore how we can help transform your advertising strategy.
+              Get in touch with us to explore how we can help transform your advertising strategy.
           </p>
         </div>
       </section>
@@ -68,12 +74,12 @@ const Contact = () => {
                   />
                 </div>
                 <ButtonGradient type="submit" className="w-full">
-                  Send Message
+                  Submit
                 </ButtonGradient>
               </form>
             </div>
 
-            <div>
+          <div>
               <div className="bg-gradient-to-br from-blue-900/80 to-purple-900/80 backdrop-blur-lg p-8 rounded-2xl text-white shadow-lg">
                 <h2 className="text-2xl font-bold mb-8">Get in touch</h2>
                 <div className="space-y-8">
@@ -132,7 +138,40 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="mt-8 p-8 rounded-2xl bg-gray-800/80 backdrop-blur-lg border border-gray-700 shadow-lg">
+              {/* <div className="mt-8 p-8 rounded-2xl bg-gray-800/80 backdrop-blur-lg border border-gray-700 shadow-lg">
+                <h3 className="text-xl font-bold mb-6 text-white">Our Location</h3>
+                <div className="rounded-xl overflow-hidden h-64 bg-gray-700 flex items-center justify-center">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.944536570373!2d77.57943231482093!3d12.92485419088419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1513fa698785%3A0x1e1b1b4680ade0d1!2s4th%20T%20Block%2C%20Jayanagar%2C%20Bengaluru%2C%20Karnataka%20560041!5e0!3m2!1sen!2sin!4v1587374907290!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    frameBorder="0"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    aria-hidden="false"
+                    tabIndex={0}
+                    title="Benaka Automation Office Location"
+                  ></iframe>
+                </div>
+                <div className="mt-6 flex justify-end">
+                  <a 
+                    href="https://goo.gl/maps/8t6kX7LBdGDyZFKu5" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center text-blue-400 hover:text-blue-300 transition-colors"
+                  >
+                    <span>View on Google Maps</span>
+                    <ArrowRight size={16} className="ml-2" />
+                  </a>
+                </div>
+              </div> */}
+            </div>
+          </div>
+        </div>
+      </section>
+
+    
+           <div className="mt-8 p-8 rounded-2xl bg-gray-800/80 backdrop-blur-lg border border-gray-700 shadow-lg">
                 <h3 className="text-xl font-bold mb-6 text-white">Our Location</h3>
                 <div className="rounded-xl overflow-hidden h-64 bg-gray-700 flex items-center justify-center">
                   <iframe
@@ -159,10 +198,7 @@ const Contact = () => {
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+   
 
       {/* Frequently Asked Questions Section */}
       <section className="py-16 bg-gray-800/50">

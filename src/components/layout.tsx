@@ -2,6 +2,7 @@
 import { Navigation } from "@/components/ui/navigation";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import  logofooter from '../assets/logo/logo-footer.png'
 import { 
   Facebook, 
   Twitter, 
@@ -40,11 +41,11 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Benaka Automation
-              </h3>
-              <p className="text-gray-400">Leading the outdoor advertising revolution across India since 2008.</p>
-              <div className="flex space-x-4">
+            
+                <img src={logofooter}/>
+           
+              <p className="text-gray-400 text-center">Leading the outdoor advertising revolution across India since 2008.</p>
+              {/* <div className="flex space-x-4">
                 {[
                   { icon: <Facebook size={20} />, name: "Facebook" },
                   { icon: <Twitter size={20} />, name: "Twitter" },
@@ -60,7 +61,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                     {social.icon}
                   </a>
                 ))}
-              </div>
+              </div> */}
             </div>
             
             <div>
@@ -99,10 +100,24 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                   <Mail className="mr-3 text-blue-400" size={18} />
                   <p>info@benakaautomation.com</p>
                 </div>
-                <div className="flex items-center">
-                  <Clock className="mr-3 text-blue-400" size={18} />
-                  <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
-                </div>
+                
+              </div>
+               <div className="flex space-x-4 mt-4">
+                {[
+                  { icon: <Facebook size={20} />, name: "Facebook" },
+                  { icon: <Twitter size={20} />, name: "Twitter" },
+                  { icon: <Instagram size={20} />, name: "Instagram" },
+                  { icon: <Linkedin size={20} />, name: "LinkedIn" },
+                ].map((social) => (
+                  <a 
+                    key={social.name} 
+                    href="#" 
+                    aria-label={social.name}
+                    className="p-2 bg-gray-800 rounded-full hover:bg-gray-700 transition-colors text-gray-400 hover:text-white"
+                  >
+                    {social.icon}
+                  </a>
+                ))}
               </div>
             </div>
           </div>

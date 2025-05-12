@@ -1,6 +1,11 @@
 
 import { Layout } from "@/components/layout";
 import { ButtonGradient } from "@/components/ui/button-gradient";
+import aboutbanner from '../assets/aboutbanner.jpg'
+import outdoor from '../assets/outdoor.jpg'
+import ready from '../assets/ready.png'
+import { Link } from "react-router-dom";
+
 import { 
   Target, 
   Award, 
@@ -15,7 +20,12 @@ import {
 const About = () => {
   return (
     <Layout>
-      <section className="pt-20 pb-12 bg-gradient-to-br from-blue-900/50 to-purple-900/50 relative overflow-hidden">
+   <section
+  className="py-20  relative overflow-hidden bg-cover bg-center"
+style={{ backgroundImage: `url(${aboutbanner})`}}
+
+>
+  <div className="absolute inset-0 bg-gradient-to-b from-blue-900/45 to-purple-900/50 "></div>
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
           <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-purple-500 rounded-full blur-3xl"></div>
@@ -41,7 +51,7 @@ const About = () => {
               <p className="text-gray-300">
                 Over the past 13+ years, we have seen immense growth in outdoor advertising and have built partnerships with 100+ clients. With our own media assets and strong dedicated workforce, we are delivering strong and cost-effective OOH campaigns for our clients.
               </p>
-              <ButtonGradient>Learn More</ButtonGradient>
+              
             </div>
             <div className="bg-gradient-to-br from-blue-900/30 to-purple-900/30 rounded-2xl p-8">
               <div className="grid grid-cols-2 gap-6">
@@ -148,11 +158,14 @@ const About = () => {
                   <span className="ml-3 text-gray-300">Brand Awareness</span>
                 </div>
               </div>
-              <ButtonGradient>Explore Our Solutions</ButtonGradient>
+              
+<Link to="/services">
+  <ButtonGradient>Explore Our Services</ButtonGradient>
+</Link>
             </div>
             <div className="order-1 lg:order-2 rounded-2xl overflow-hidden shadow-2xl shadow-blue-500/10">
               <img 
-                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b" 
+                src={outdoor} 
                 alt="Digital Outdoor Advertising" 
                 className="w-full h-auto object-cover rounded-2xl transform hover:scale-105 transition-transform duration-500"
               />
@@ -227,13 +240,19 @@ const About = () => {
           </div>
         </div>
       </section>
+   <section
+  className="py-20  relative overflow-hidden bg-cover bg-center"
+style={{ backgroundImage: `url(${ready})`}}
 
-      <section className="py-16 bg-gradient-to-br from-blue-900/80 to-purple-900/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-8">Ready to Work with Us?</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Let's discuss how our outdoor advertising expertise can help your brand reach new heights.
-          </p>
+>
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 to-purple-900/75 "></div>
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <h2 className="text-3xl font-bold mb-8 text-white">
+      Ready to Elevate Your Brand Visibility?
+    </h2>
+    <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+      Let's discuss how our innovative outdoor advertising solutions can help you reach your target audience effectively.
+    </p>
           <ButtonGradient onClick={() => window.location.href = "/contact"}>Contact Us Today</ButtonGradient>
         </div>
       </section>
