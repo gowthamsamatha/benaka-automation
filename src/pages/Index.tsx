@@ -3,8 +3,10 @@ import { Layout } from "@/components/layout";
 import { ButtonGradient } from "@/components/ui/button-gradient";
 import { useNavigate } from "react-router-dom";
 import homebanner from '../assets/home-banner.png'
+import cube from '../assets/cube.mp4'
 import whychoose from '../assets/why-choose.png'
 import ready from '../assets/ready.png'
+import floor from '../assets/floor.jpg'
 import { 
   LayoutGrid, 
   MonitorSmartphone, 
@@ -43,14 +45,25 @@ const Index = () => {
           >
             <source src="https://videos.pexels.com/videos/digital-presentation-of-data-2099232" type="video/mp4" />
           </video> */}
-          <img src={homebanner}  alt="Banner"
-  className="w-full  object-cover"/>
+          {/* <img src={homebanner}  alt="Banner"
+  className="w-full  object-cover"/> */}
+   <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute top-0 left-0 w-full h-full object-cover"
+  >
+    <source src={cube} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/90 to-gray-900/80" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-7xl font-bold mb-6 text-white">
               Benaka
+           
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
                 {" "}Automation
               </span>
@@ -258,7 +271,9 @@ const Index = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-24 bg-gray-800/50 relative overflow-hidden">
+     <section className="py-24 relative overflow-hidden bg-[url('./assets/floor.jpg')] bg-cover bg-center bg-no-repeat bg-gray-800/50">
+
+        <div className="absolute inset-0 bg-black/70 z-0"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -330,22 +345,14 @@ const Index = () => {
         <div className="absolute inset-0 opacity-30">
           <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
         </div>
+        
       </section>
 
       {/* Clients Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-gray-800 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10 bg-gradient-to-r  from-gray-900 to-gray-800 relative">
+        {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12 text-white">Our Clients</h2>
-          {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
-            {Array.from({ length: 12 }).map((_, index) => (
-              <div
-                key={index}
-                className="h-20 flex items-center justify-center rounded-lg bg-gray-800/80 backdrop-blur-lg border border-white/10 hover:border-white/20 transition-all duration-300 transform hover:scale-105"
-              >
-                <div className="text-gray-400 font-medium">Client {index+1}</div>
-              </div>
-            ))}
-          </div> */}
+          
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
   {clientImages.map((imgSrc, index) => (
     <div
@@ -366,12 +373,30 @@ const Index = () => {
               View Our Projects
             </ButtonGradient>
           </div>
+        </div> */}
+           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <h2 className="text-3xl font-bold text-center mb-12 text-white">Our Clients</h2>
+
+      {/* Carousel container */}
+      <div className="overflow-hidden relative">
+        <div className="flex gap-16 animate-scroll whitespace-nowrap">
+          {clientImages.concat(clientImages).map((imgSrc, index) => (
+            <div key={index} className="flex-shrink-0 flex items-center justify-center h-20">
+              <img
+                src={imgSrc}
+                alt={`Client ${index + 1}`}
+                className="max-h-12  transition duration-300 brightness-300"
+              />
+            </div>
+          ))}
         </div>
+      </div>
+      </div>
       </section>
 
       {/* CTA Section */}
       <section
-  className="py-20  relative overflow-hidden bg-cover bg-center"
+  className="py-20 mt-16 relative overflow-hidden bg-cover bg-center"
 style={{ backgroundImage: `url(${ready})`}}
 
 >
@@ -391,6 +416,8 @@ style={{ backgroundImage: `url(${ready})`}}
   {/* Optional dark overlay for better contrast */}
   <div className="absolute inset-0 bg-black/40 z-0"></div>
 </section>
+
+
 
     </Layout>
   );
